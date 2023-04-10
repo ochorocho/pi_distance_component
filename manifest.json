@@ -1,0 +1,9 @@
+{
+    "domain": "pi_distance",
+    "name": "Pi Pico and HC-SR04 wifi distance sensor",
+    "documentation": "https://github.com/ochorocho/pi_distance_component",
+    "dependencies": [],
+    "codeowners": ["@ochorocho"],
+    "requirements": [],
+    "version": "0.1.0"
+}
