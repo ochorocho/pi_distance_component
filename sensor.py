@@ -48,7 +48,7 @@ class PicoDistanceSensor(SensorEntity):
 
     @property
     def available(self):
-        """Return if projector is available."""
+        """Return if sensor is available."""
 
         return self._available
 
@@ -56,12 +56,12 @@ class PicoDistanceSensor(SensorEntity):
         """Fetch data - this is the only method to fetch data for Home Assistant"""
 
         try:
-            response = requests.get(self._url)
+            response = requests.get(self._url, timeout=5)
             self._available = True
         except:
             self._available = False
+            _LOGGER.info("No response from " + self._url)
             return
 
         result = response.json()
-        _LOGGER.info(result)
         self._attr_native_value = result["distance"]
